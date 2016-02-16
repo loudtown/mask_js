@@ -64,7 +64,7 @@ $(function(){
         }
         
         //проверка кол-ва частей
-        if($('#selectType option:selected').attr('value') == 'emailType' && parseInt($('#tbPartsCount').val()) < 2 || isNaN(parseInt($('#tbPartsCount').val()))){
+        if($('#selectType option:selected').attr('value') == 'emailType' && (parseInt($('#tbPartsCount').val()) < 2 || isNaN(parseInt($('#tbPartsCount').val())))){
             $('#partsInputContainer').addClass('has-error'); 
             $('#tbPartsHelpSpan').text('>1 !');
             return false;
@@ -172,6 +172,7 @@ $(function(){
                 //если нужно учитывать количество разрядов
                 if(enforceDigitNum)
                     for(idx = 0; idx < parts.length; idx++)
+                    // явно считаются цифры, т.к. в начале (и в конце в экспонентной форме) могут быть указаны знаки (плюс \ минус)
                         if(maskParts[idx].match(/\d/).length !== parts[idx].match(/\d/).length)
                             return 'Введённый текст не соответствует маске по количеству нужных разрядов';
                             
@@ -201,6 +202,7 @@ $(function(){
                 //если нужно учитывать количество разрядов
                 if(enforceDigitNum)
                     for(idx = 0; idx < parts.length; idx++)
+                    // явно считаются цифры, т.к. в начале (и в конце в экспонентной форме) могут быть указаны знаки (плюс \ минус)
                         if(maskParts[idx].match(/\d/).length !== parts[idx].match(/\d/).length)
                             return 'Введённый текст не соответствует маске по количеству нужных разрядов';
                            
