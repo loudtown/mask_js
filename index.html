@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Mask | by Yegor Kuzmin</title>
+        <link rel="stylesheet" href="bootstrap.min.css" />
+        <link rel="stylesheet" href="mystyle.css" />
+        <script type="text/javascript" src="jquery-2.2.0.min.js"></script>
+        <script type="text/javascript" src="bootstrap.min.js"></script>
+        <script type="text/javascript" src="myscript.js"></script>
+    </head>
+    <body class="container">
+        
+        <noscript class="alert alert-danger">
+            <strong>Внимание!</strong> Для правильной работы необходимо включить Javascript
+        </noscript>
+        
+       <form class="navbar-form" id="formAdd" action="#" method="POST">
+           <fieldset form="formAdd">
+               <legend>Добавление элементов</legend>
+               
+               <label class="control-label" for="selectType">Тип: </label>
+               <select class="form-control" name="type" id="selectType" autocomplete="off">
+                   <option value="toolTipType" disabled selected>Выберите тип</option>
+                   <option value="emailType">Почтовый адрес</option>
+                   <option value="telephoneType">Телефонный номер</option>
+                   <option value="scientificType">Поле ввода чисел в экспоненциальном виде</option>
+                   <option value="numbersType">Поле ввода чисел</option>
+               </select>
+           
+               <span id="maskInputContainer" class="hidden">
+                   <label class="control-label" for="tbMask">Маска: </label>
+                   <input type="text" class="form-control" name="mask" id="tbMask" placeholder="Маска" autocomplete="off" />
+                   <span class="alert-danger" id="tbMaskHelpSpan"></span>
+               </span>
+           
+               <span id="partsInputContainer" class="hidden">
+                   <label class="control-label" for="tbPartsCount">Кол-во частей: </label>
+                   <input type="number" class="form-control" name="partscount" id="tbPartsCount" placeholder="2" autocomplete="off" />
+                   <span class="alert-danger" id="tbPartsHelpSpan"></span>
+               </span>        
+           
+               <button type="button" class="btn btn-default pull-right hidden" id="btnAdd">Добавить</button>
+               
+           </fieldset>
+        </form>
+        
+        <form class="navbar-form hidden" id="formElements" action="#" method="POST">
+            <fieldset form="formElements">
+                <legend>Элементы</legend>
+            </fieldset>
+        </form>
+               
+    </body>
+</html>
