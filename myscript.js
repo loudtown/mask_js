@@ -64,7 +64,7 @@ $(function(){
         }
         
         //проверка кол-ва частей
-        if($('#selectType option:selected').attr('value') == 'emailType' && parseInt($('#tbPartsCount').val()) < 2){
+        if($('#selectType option:selected').attr('value') == 'emailType' && parseInt($('#tbPartsCount').val()) < 2 || isNaN(parseInt($('#tbPartsCount').val()))){
             $('#partsInputContainer').addClass('has-error'); 
             $('#tbPartsHelpSpan').text('>1 !');
             return false;
@@ -173,7 +173,7 @@ $(function(){
                 if(enforceDigitNum)
                     for(idx = 0; idx < parts.length; idx++)
                         if(maskParts[idx].match(/\d/).length !== parts[idx].match(/\d/).length)
-                            return 'Введённый текст не соответствует маске количеству нужных разрядов';
+                            return 'Введённый текст не соответствует маске по количеству нужных разрядов';
                             
                 //numIdx просто чтобы не создавать новую переменную. 
                 //idx считает части, numIdx - индексы символов разделителей.
@@ -202,7 +202,7 @@ $(function(){
                 if(enforceDigitNum)
                     for(idx = 0; idx < parts.length; idx++)
                         if(maskParts[idx].match(/\d/).length !== parts[idx].match(/\d/).length)
-                            return 'Введённый текст не соответствует маске количеству нужных разрядов';
+                            return 'Введённый текст не соответствует маске по количеству нужных разрядов';
                            
                 result = parts[0];
                 if(parts.length == 2) result += separator + parts[1];
